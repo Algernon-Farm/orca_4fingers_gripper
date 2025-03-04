@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="orca_4fingers_gripper">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-1.0899E-05 -3.5276E-06 -0.039872"
+        rpy="0 0 0" />
+      <mass
+        value="0.37773" />
+      <inertia
+        ixx="0.00030022"
+        ixy="1.754E-07"
+        ixz="8.9938E-08"
+        iyy="0.00034117"
+        iyz="4.8611E-08"
+        izz="0.00017546" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://orca_4fingers_gripper/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.86667 0.8902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 -0.025"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.032" length="0.05" /> 
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        xyz="0 0 -0.07"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.082 0.054 0.020" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="roll_link1">
+    <inertial>
+      <origin
+        xyz="-0.0048066 6.6139E-07 -0.03006"
+        rpy="0 0 0" />
+      <mass
+        value="0.093" />
+      <inertia
+        ixx=" 0.00010363"
+        ixy="0.00001675"
+        ixz="0"
+        iyy="0.00004665"
+        iyz="-1.2399E-12"
+        izz="0.00008053" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://orca_4fingers_gripper/meshes/roll_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.86667 0.8902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.005 0 -0.045"
+        rpy="0 -0.26 0" />
+      <geometry>
+        <box size="0.046 0.058 0.089" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roll_jiont1"
+    type="revolute">
+    <origin
+      xyz="0.035999 0 -0.087997"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="roll_link1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.33"
+      upper="0.244"
+      effort="10"
+      velocity="0.1" />
+  </joint>
+  <link
+    name="roll_link2">
+    <inertial>
+      <origin
+        xyz="0.0048066 -6.6139E-07 -0.03006"
+        rpy="0 0 0" />
+      <mass
+        value="0.093" />
+      <inertia
+        ixx="0.00010363"
+        ixy="0.00001675"
+        ixz="0"
+        iyy="0.00004665"
+        iyz="1.2399E-12"
+        izz="0.00008053" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://orca_4fingers_gripper/meshes/roll_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.86667 0.8902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.005 0 -0.045"
+        rpy="0 0.26 0" />
+      <geometry>
+        <box size="0.046 0.058 0.089" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roll_jiont2"
+    type="revolute">
+    <origin
+      xyz="-0.035999 0 -0.087997"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="roll_link2" />
+    <axis
+      xyz="0 -1 0" />
+    <mimic joint="roll_jiont1" multiplier="-1.0" offset="0"/>
+    <limit
+      lower="-0.244"
+      upper="0.33"
+      effort="10"
+      velocity="0.1" />
+  </joint>
+</robot>
