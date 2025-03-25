@@ -91,7 +91,7 @@
     </collision>
   </link>
   <joint
-    name="roll_jiont1"
+    name="roll_joint1"
     type="revolute">
     <origin
       xyz="0.035999 0 -0.087997"
@@ -148,7 +148,7 @@
     </collision>
   </link>
   <joint
-    name="roll_jiont2"
+    name="roll_joint2"
     type="revolute">
     <origin
       xyz="-0.035999 0 -0.087997"
